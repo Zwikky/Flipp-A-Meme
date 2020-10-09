@@ -83,6 +83,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
             cards[optionOneId].setAttribute('src', 'images/white.png')
             cards[optionTwoId].setAttribute('src', 'images/white.png')
             cardsWon.push(cardsChosen)
+            
         } else {
           cards[optionOneId].setAttribute('src', 'images/board.jpg')  
           cards[optionTwoId].setAttribute('src', 'images/board.jpg')
