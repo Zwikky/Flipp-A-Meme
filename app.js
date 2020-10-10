@@ -56,16 +56,21 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     const grid = document.querySelector('.grid')
     const resultDisplay = document.querySelector('#result')
+    const timeLeft = document.querySelector('#time-left')
     var cardsChosen = []
     var cardsChosenId = []
     var cardsWon = []
+
+    let currentTime = timeLeft.textContent
+
 
 
     //create board
     function createBoard() {
         for (let i = 0; i < cardArray.length; i++) {
-            var card = document.createElement('img')
+            var card = document.createElement('input')
             card.setAttribute('src', 'images/board.jpg')
+            card.setAttribute('type', 'image')
             card.setAttribute('data-id', i)
             card.addEventListener('click', flipCard) 
             grid.appendChild(card)
@@ -75,15 +80,18 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     //check for matched
     function checkForMatch() {
-        var cards = document.querySelectorAll('img')
+        var cards = document.querySelectorAll('input')
         const optionOneId = cardsChosenId[0]
         const optionTwoId = cardsChosenId[1]
         if (cardsChosen[0] === cardsChosen[1]) {
             alert('YEBO!!! Meme Matched')
             cards[optionOneId].setAttribute('src', 'images/white.png')
             cards[optionTwoId].setAttribute('src', 'images/white.png')
+            cards[optionOneId].setAttribute('disabled', 'true')
+            cards[optionTwoId].setAttribute('disabled', 'true')
+            cards[optionOneId].s
             cardsWon.push(cardsChosen)
-            
+
         } else {
           cards[optionOneId].setAttribute('src', 'images/board.jpg')  
           cards[optionTwoId].setAttribute('src', 'images/board.jpg')
@@ -91,7 +99,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         }
         cardsChosen = []
         cardsChosenId = []
-        resultDisplay.textContent = cardsWon.length
+        resultDisplay.textContent = cardsWon.length * 100
 
         if (cardsWon.length === cardArray/2) {
             resultDisplay.textContent = 'Congratulations!!! All Memes Matched'
@@ -108,7 +116,26 @@ document.addEventListener('DOMContentLoaded', ()=> {
         if (cardsChosen.length === 2) {
             setTimeout(checkForMatch, 500)
         }
+
+        countDown()
+    }
+
+    // count down from 2 minutes
+
+    function countDown() {
+        currentTime--
+        timeLeft.textContent = currentTime
+
+        if (currentTime === 0) {
+
+            alert('Timeout!!!, Your Score is: ' + cardsWon.length)
+            cardsChosen = []
+            cardsChosenId = []
+            cardsWon = []
+        }
+
     }
 
     createBoard()
+    // let timeId = setInterval(countDown, 1000);
 })
