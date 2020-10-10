@@ -47,10 +47,32 @@ body {
 .top {
     margin: 30px 20px 0;
     color: black;
+    align-items: center;
     > timer {
         font-size: 16px;
     }
+
+    
 }
+.hello {
+    font-weight: 600;
+    font-size: 1.2em;
+}
+.score {
+    font-weight: 600;
+    font-size: 1.2em;
+}
+.timer {
+    font-weight: 600;
+    font-size: 1.2em;
+}
+.profile-box {
+        float: right;
+      }
+
+.profile {
+        border-radius: 50%;
+    }
 
 .top-10 {
     background-color: #fff;
@@ -83,4 +105,9 @@ body {
         font-weight: 700;
         margin-left: auto;
     }
+}
+
+.top-title {
+    text-align: center;
+
 }
