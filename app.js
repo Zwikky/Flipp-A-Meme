@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
     const grid = document.querySelector('.grid')
     const resultDisplay = document.querySelector('#result')
     const timeLeft = document.querySelector('#time-left')
+    const user = document.querySelector("#user-name")
     var cardsChosen = []
     var cardsChosenId = []
     var cardsWon = []
@@ -136,6 +137,17 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     }
 
+    //get user profile
+    function onProfileChanged(nickname, avatarPath) {
+        currentNickname = nickname
+        currentAvatarPath = avatarPath
+
+        user.textContent = currentNickname
+
+      }
+
     createBoard()
+    onProfileChanged(nickname, avatarPath)
+    // Ge
     // let timeId = setInterval(countDown, 1000);
 })
