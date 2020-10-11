@@ -5,8 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <title>Flipp-A-Meme</title>
     <script src="app.js"></script>
+    <script>
+            function hideYebo() {
+                var yebo = document.querySelector('#yebo-box');
+                yebo.style.opacity = '0';
+                yebo.style.pointerEvents = 'none'; 
+            }
+            function hideOops() {
+                var yebo = document.querySelector('#oops-box');
+                yebo.style.opacity = '0';
+                yebo.style.pointerEvents = 'none'; 
+            }
+            function hideTimout() {
+                var yebo = document.querySelector('#timout-box');
+                yebo.style.opacity = '0';
+                yebo.style.pointerEvents = 'none'; 
+            }
+        
+    </script>
 </head>
 <body>
     <script src="./lib/microapp.js"></script>
@@ -18,7 +37,7 @@
                        <tr>
                            <td><div class="hello">Hello: <span id="user-name">Ayoba User</span> </div>
                     <div class="score">Score <span id="result" style="color: red;"></span> </div>
-                    <div class="timer">Timer: <span id="time-left">120</span></div></td>
+                    <div class="timer">Timer: <span id="time-left">5</span></div></td>
                            <td>
                     
                     <div style="margin-left: 80px;"  class="profile-box">
@@ -32,6 +51,29 @@
             <div class="grid">
 
             </div>
+            <div class="yebo-box" id="yebo-box">
+                <i class="fa fa-thumbs-o-up"></i>
+                <h3>YEBO!!! Meme Matched</h3>
+                <div class="btns">
+                    <button onclick="hideYebo()" id="btn1" class="btn1">Okay</button>
+                </div>
+            </div>
+            <div class="oops-box" id="oops-box">
+                <i class="fa fa-times"></i>
+                <h3>OOPS!!! Sorry, Try Again</h3>
+                <div class="btns">
+                    <button onclick="hideOops()" id="btn2" class="btn1">Okay</button>
+                </div>
+            </div>
+            <div class="timout-box" id="timout-box">
+                <i class="fa fa-bell"></i>
+                <h3 id="time-out">Time Out</h3>
+                <div class="btns">
+                    <button onclick="hideTimout()" id="btn3" class="btn1">Okay</button>
+                </div>
+            </div>
+
+
 
             <div class="top-title">
                 <h3>Leaderboard</h3>

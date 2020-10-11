@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     let currentTime = timeLeft.textContent
 
+    
 
     //create board
     function createBoard() {
@@ -86,7 +87,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
         const optionOneId = cardsChosenId[0]
         const optionTwoId = cardsChosenId[1]
         if (cardsChosen[0] === cardsChosen[1]) {
-            alert('YEBO!!! Meme Matched')
+            var yebo = document.querySelector('#yebo-box');
+            yebo.style.opacity = '1';
+            yebo.style.pointerEvents = 'auto';
             cards[optionOneId].setAttribute('src', 'images/white.png')
             cards[optionTwoId].setAttribute('src', 'images/white.png')
             cards[optionOneId].setAttribute('disabled', 'true')
@@ -97,7 +100,10 @@ document.addEventListener('DOMContentLoaded', ()=> {
         } else {
           cards[optionOneId].setAttribute('src', 'images/board.jpg')  
           cards[optionTwoId].setAttribute('src', 'images/board.jpg')
-          alert('OOPS!!! Sorry, Try Again')  
+           
+            var oops = document.querySelector('#oops-box');
+            oops.style.opacity = '1';
+            oops.style.pointerEvents = 'auto';
         }
         cardsChosen = []
         cardsChosenId = []
@@ -132,7 +138,12 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
             if (currentTime === 0) {
 
-                alert('Timeout!!!, Your Score is: ' + cardsWon.length * 100)
+                
+                var timout = document.querySelector("#time-out")
+                timout.textContent = 'Timeout!!!, Your Score is: ' + cardsWon.length * 100
+                var timeOut = document.querySelector('#timout-box');
+                timeOut.style.opacity = '1';
+                timeOut.style.pointerEvents = 'auto';
                 cardsChosen = []
                 cardsChosenId = []
                 cardsWon = []
